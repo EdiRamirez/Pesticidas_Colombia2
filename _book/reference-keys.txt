@@ -1,0 +1,7 @@
+unidad-1
+predicción-para-el-precio-de-importación-de-pesticidas-en-colombia
+formulación-del-problema
+la-ciencia-de-datos-ds
+los-datos
+creación-del-dataset
+limpieza-de-los-datos
