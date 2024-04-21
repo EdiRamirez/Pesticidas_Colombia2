@@ -1,6 +1,6 @@
 # publish the book with different HTML styles; you should not need this script
 
-unlink(recursive = TRUE)
+unlink('_book', recursive = TRUE)
 
 x = readLines('index.Rmd')
 i = 1
