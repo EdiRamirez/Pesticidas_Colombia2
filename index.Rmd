@@ -1,6 +1,6 @@
 --- 
 title: "PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS"
-author: "Luis Felipe Ramírez Amariz y Edisson Miguel Ramírez Méndez y alguien más"
+author: "Luis Felipe Ramírez Amariz y Edisson Miguel Ramírez Méndez"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
