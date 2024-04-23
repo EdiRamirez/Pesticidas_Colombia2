@@ -1,15 +1,15 @@
 --- 
 title: "PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS"
-author: "Luis Felipe Ramírez Amariz, Edisson Miguel Ramírez Méndez y David Gómez López"
+author: "Luis Felipe Ramírez Amariz, Edisson Miguel Ramírez Méndez y David López Gómez"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::tufte_html
+output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib]
+bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS."
 ---
 
 # Unidad 1
