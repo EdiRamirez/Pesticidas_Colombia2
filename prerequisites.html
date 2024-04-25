@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Prerequisites | PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Prerequisites | PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Prerequisites | PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Luis Felipe Ramírez Amariz y Edisson Miguel Ramírez Méndez" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Unidad 1</a></li>
+<li class="chapter" data-level="2" data-path="prerequisites.html"><a href="prerequisites.html"><i class="fa fa-check"></i><b>2</b> Prerequisites</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="prerequisites.html"><a href="prerequisites.html#predicción-para-el-precio-de-importación-de-pesticidas-en-colombia"><i class="fa fa-check"></i><b>2.1</b> Predicción para el precio de importación de pesticidas en Colombia</a></li>
+<li class="chapter" data-level="2.2" data-path="prerequisites.html"><a href="prerequisites.html#formulación-del-problema"><i class="fa fa-check"></i><b>2.2</b> Formulación del problema</a></li>
+<li class="chapter" data-level="2.3" data-path="prerequisites.html"><a href="prerequisites.html#la-ciencia-de-datos-ds"><i class="fa fa-check"></i><b>2.3</b> La ciencia de Datos (DS)</a></li>
+<li class="chapter" data-level="2.4" data-path="prerequisites.html"><a href="prerequisites.html#los-datos"><i class="fa fa-check"></i><b>2.4</b> Los Datos</a></li>
+<li class="chapter" data-level="2.5" data-path="prerequisites.html"><a href="prerequisites.html#creación-del-dataset"><i class="fa fa-check"></i><b>2.5</b> Creación del Dataset</a></li>
+<li class="chapter" data-level="2.6" data-path="prerequisites.html"><a href="prerequisites.html#limpieza-de-los-datos"><i class="fa fa-check"></i><b>2.6</b> Limpieza de los Datos</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="prerequisites" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Prerequisites<a href="prerequisites.html#prerequisites" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
+<p>The <strong>bookdown</strong> package can be installed from CRAN or Github:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="prerequisites.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)</span>
+<span id="cb1-2"><a href="prerequisites.html#cb1-2" tabindex="-1"></a><span class="co"># or the development version</span></span>
+<span id="cb1-3"><a href="prerequisites.html#cb1-3" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></span></code></pre></div>
+<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
+<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>.</p>
+
+<div id="predicción-para-el-precio-de-importación-de-pesticidas-en-colombia" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Predicción para el precio de importación de pesticidas en Colombia<a href="prerequisites.html#predicción-para-el-precio-de-importación-de-pesticidas-en-colombia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El sector agrícola ha experimentado un incremento permanente en los precios al consumidor durante los últimos años. Esto puede ser asociado a varios factores, pero el que vale la pena mencionar en esta parte del desarrollo del proyecto es el incremento en el valor en la tasa de cambio y su impacto en la fluctuación del precio de los insumos importados. El sector agrícola depende de pesticidas importados para su producción, y el comportamiento en los últimos años en el precio de la tasa representativa del mercado (TRM), ha encarecido la compra de estos bienes. Un ejemplo de cómo afecta esta situación al sector agrícola se ve reflejado en un informe de Fedepapa donde se afirma que el alza de todos los insumos importados llevó a que la producción de una hectárea de papa en noviembre del 2022 llegara a costar $34 millones mientras que en el 2021 tenía un valor de $22 millones de pesos</p>
+</div>
+<div id="formulación-del-problema" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Formulación del problema<a href="prerequisites.html#formulación-del-problema" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>¿Como pronosticar un precio promedio de los pesticidas seleccionados, a partir de las técnicas y herramientas que ofrece las ciencias de datos?</p>
+</div>
+<div id="la-ciencia-de-datos-ds" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> La ciencia de Datos (DS)<a href="prerequisites.html#la-ciencia-de-datos-ds" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En un entorno tan competitivo como el que se enfrenta en la actualidad, las organizaciones, gremios e instituciones de cualquier tipo requieren de estrategias innovadoras para poder adaptarse a los fuertes cambios del presente y obtener fuertes conocimientos a partir de los datos e información disponible, es una muy buena estrategia para poder tomar decisiones pertinentes y administrar estos conjuntos de datos potencialmente invaluables.
+Se puede definir la DS, como la aplicación de métodos cualitativos y cuantitativos para predecir resultados y solucionar problemas relevantes que atiendan a la creciente e inmensa cantidad de datos que existe actualmente y que se tienen disponibles. En la actualidad hay muchos algoritmos para el procesamiento y extracción de datos, DS proporciona a los profesionales una estructura y un conjunto de principios que dan un marco para tratar sistemáticamente los problemas de extracción de conocimiento útil de los datos [6]. A continuación, se abordará una breve definición de los principales principios de DS que se consideran relevantes para poder desarrollar la propuesta de este proyecto.
+Para efectos de este proyecto, se propone utilizar algunas de las herramientas más de la DS, para así poder encontrar un modelo tal que estime el precio de un bien, para este caso algunos de los pesticidas importados en Colombia, que facilite la toma de decisiones en el sector agrícola y transcienda en el mercado internacional.</p>
+
+</div>
+<div id="los-datos" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Los Datos<a href="prerequisites.html#los-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Los datos se encuentran alojados en la página de la Dian. Estas bases estadísticas de Comercio Exterior comprenden el movimiento legal de mercancías que ingresan o salen del territorio aduanero nacional -TAN- a través de las diferentes aduanas del país, desde o hacia otros países y zonas francas del territorio nacional; a esta información se le ha aplicado filtros, ajustes estadísticos y lineamientos metodológicos estadísticos nacionales e internacionales, respecto de las operaciones de Comercio Exterior de Bienes, dando cumplimiento a los principios de transparencia y acceso a la información pública, sin perjuicio del cumplimiento de las normas vigentes en materia de protección de datos personales, los Principios Fundamentales de las Estadísticas Oficiales de las Naciones Unidas y el Código Nacional de Buenas Prácticas del Sistema Estadístico Nacional del Departamento Administrativo Nacional de Estadística -DANE. (Nacionales, s.f.)
+Este conjunto de datos se extrajo y se estructuró únicamente con las partidas arancelarias que hacen parte de los pesticidas que se modelarán.</p>
+</div>
+<div id="creación-del-dataset" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Creación del Dataset<a href="prerequisites.html#creación-del-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una vez que los datos fueron extraídos, se procedió a la creación del conjunto de datos. Esto implicó organizar la información en un formato estructurado que fuera adecuado para su posterior análisis. Se asignaron etiquetas y se verificó la coherencia de los datos para garantizar su calidad.
+En este punto se realizó ajuste a las variables determinando las que mayor información generan para el análisis que se espera y dejando las de la información de nombres de importador y exportador, departamentos de destino, el peso neto, valor de la transacción de dólares, la descripción de la mercancía, la tasa de cambio, así como la fecha de presentación y partiendo de estos datos base, se crea la variable valor por kilo en la que se divide el valor FOB de la transacción sobre el peso que indica la importación tratando de definir para cada entrada al país de mercancía el valor de cada Kilo.
+Se agrega adicional la descripción de la partida arancelaria indicando las que son Insecticidas, herbicidas y fungicidas para el análisis posterior.</p>
+</div>
+<div id="limpieza-de-los-datos" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Limpieza de los Datos<a href="prerequisites.html#limpieza-de-los-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En esta fase, se llevó a cabo un proceso exhaustivo de limpieza de los datos. Se identificaron y corrigieron posibles errores, valores atípicos y datos faltantes. Además, se aplicaron técnicas de normalización y estandarización para asegurar la consistencia y la fiabilidad de los datos.
+En este punto se realiza la homologación de los importadores que en el análisis resultan ser los de mayor importancia y más volumen de importaciones generan ya que en algunos casos están escritos de manera diferente haciendo referencia a la misma empresa y en otros, por investigación de estas empresas, logramos determinar que hasta determinado año tenían una razón social diferente. Más adelante describiremos estas uniones y compras de compañías que hacen dinámico el mercado general de los pesticidas en Colombia.</p>
+<p>Se obtuvo un Dataset robusto con 60.401 observaciones y 11 variables a partir de la minería de los datos, se realizaron algunos cálculos referentes al proceso exploratorio de los datos logrando encontrar correlaciones y consiguiendo identificar patrones entre las variables para corregir problemas de sesgo.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
