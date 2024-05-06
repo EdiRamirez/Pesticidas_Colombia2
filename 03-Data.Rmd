@@ -1,8 +1,8 @@
 ---
 title: "Data"
-output:
-  pdf_document: default
-  html_notebook: default
+author: "David"
+date: "2024-05-04"
+output: html_document
 ---
 
 # Información de los datos existentes
@@ -49,8 +49,6 @@ Al importar los datos de excel se requiere organizarlos en orden ascendente de a
 
 </p>
 ```{r}
-install.packages("dplyr")
-install.packages("forecast")
 
 # Cargar el paquete
 library(dplyr)
@@ -61,6 +59,7 @@ datos_ts <- arrange(datos_ts,(FECHA_PRESENTACION))
 
 #datos_ts
 ```
+</p>
 
 <h3>Media Movil</h3>
 
@@ -114,7 +113,7 @@ preciosMV_ts
 
 ```
 
-
+</p>
 ```{r}
 #install.packages("fpp2")
 library(fpp2)
@@ -123,7 +122,8 @@ library(fpp2)
 library(fpp)
 
 ```
-<p>
+</p>
+
 Se realiza grafica del precio del insecticida y se incluye el comportamiento de la media movil usando valor de K=5
 </p>
 
@@ -183,7 +183,7 @@ Se realiza grafica de descomposicion de:
 
 
 ```{r}
-install.packages("ggfortify")
+install.packages("ggfortify", repos = "http://cran.us.r-project.org")
 
 fit <-decompose(precios_ts,type = "additive")
 library(ggfortify)
@@ -256,15 +256,6 @@ acf(precios_ts,main="Serie No Estacionaria")
 plot(seriedif)
 acf(seriedif,main="Serie Estacionaria")
 
-```
-
-
-
-No hay definición de datos
-
-```{r}
-plot(Indice.ts, main=" ", ylab="VALOR_KILO", col="deepskyblue", xlab"FECHA_PRESENTACION")
-title(main = "Valores mensuales")
 ```
 
 ```{r}
