@@ -1,0 +1,16 @@
+      Num        IMPORTADOR_2       EXPORTADOR_2       DEPARTAMENTO_DESTINO SUBPARTIDA_ARANCELARIA   PESO_NETO         VALOR_FOB_USD     DESCRIPCION_MERCANCIA
+ Min.   :  0.0   Length:60401       Length:60401       Length:60401         Min.   :3.809e+09      Min.   :     0.01   Min.   :      0   Length:60401         
+ 1st Qu.: 89.0   Class :character   Class :character   Class :character     1st Qu.:3.809e+09      1st Qu.:  1260.00   1st Qu.:  15465   Class :character     
+ Median :180.0   Mode  :character   Mode  :character   Mode  :character     Median :3.809e+09      Median :  4248.00   Median :  38398   Mode  :character     
+ Mean   :189.8                                                              Mean   :3.809e+09      Mean   :  9611.97   Mean   :  67049                        
+ 3rd Qu.:276.0                                                              3rd Qu.:3.809e+09      3rd Qu.: 12240.00   3rd Qu.:  79092                        
+ Max.   :596.0                                                              Max.   :3.809e+09      Max.   :255067.53   Max.   :3334924                        
+                                                                                                                                                              
+  TASA_CAMBIO   FECHA_PRESENTACION   VALOR_KILO         PESTICIDA        
+ Min.   :1748   Min.   :NA         Min.   :     0.00   Length:60401      
+ 1st Qu.:1967   1st Qu.:NA         1st Qu.:     3.83   Class :character  
+ Median :3027   Median :NA         Median :     7.81   Mode  :character  
+ Mean   :3033   Mean   :NaN        Mean   :    46.25                     
+ 3rd Qu.:3770   3rd Qu.:NA         3rd Qu.:    20.00                     
+ Max.   :5058   Max.   :NA         Max.   :115280.00                     
+                NA's   :60401                                            
