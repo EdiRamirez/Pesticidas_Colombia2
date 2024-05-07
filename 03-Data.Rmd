@@ -5,7 +5,7 @@ date: "2024-05-04"
 output: html_document
 ---
 
-# Información de los datos existentes
+<h2>Actividad 2</h2>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -21,7 +21,6 @@ datos <- read.xlsx("importacionestriadadef.xlsx")
 ```
 
 
-<h2>Actividad 2</h2>
 
 <h3>Selección de datos</h3>
 
