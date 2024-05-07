@@ -22,22 +22,15 @@ datos <- read.xlsx("importacionestriadadef.xlsx")
 
 ```
 
-
-
 <h3>Selección de datos</h3>
 
-<p>
-Se realiza analisis de la informacion de los diferente importadores de pesticidas, se encuentran diversas empresas importadoras y con diversos componentes o prodcutos a importar. al evaluar se identifica que la empresa TRIADA EMA S.A. SUCURSAL COLOMBIA importa un producto llamado Cosmo-Oil que hace parte del grupo de insecticidas, se tienen registros desde el 2010 al 2016, para un total de 73 registros.
-</p>
+<p>Se realiza analisis de la informacion de los diferente importadores de pesticidas, se encuentran diversas empresas importadoras y con diversos componentes o prodcutos a importar. al evaluar se identifica que la empresa TRIADA EMA S.A. SUCURSAL COLOMBIA importa un producto llamado Cosmo-Oil que hace parte del grupo de insecticidas, se tienen registros desde el 2010 al 2016, para un total de 73 registros.</p>
 
 ```{r cars}
 summary(datos)
 ```
 
-<p>
-De total de los datos se seleccionan los campos "Fecha_Presentación" y "Valor_FOB_USD", este ultimo corresponde al precio por kilo del insecticida.
-
-</p>
+<p>De total de los datos se seleccionan los campos "Fecha_Presentación" y "Valor_FOB_USD", este ultimo corresponde al precio por kilo del insecticida.</p>
 
 ```{r pressure, echo=FALSE}
 datos_ts <- datos[, c("FECHA_PRESENTACION", "VALOR_FOB_USD")]
@@ -45,10 +38,9 @@ datos_ts <- datos[, c("FECHA_PRESENTACION", "VALOR_FOB_USD")]
 #datos_ts
 
 ```
-<p>
-Al importar los datos de excel se requiere organizarlos en orden ascendente de acuerdo a la fecha.
 
-</p>
+<p>Al importar los datos de excel se requiere organizarlos en orden ascendente de acuerdo a la fecha.</p>
+
 ```{r}
 
 # Cargar el paquete
@@ -60,32 +52,26 @@ datos_ts <- arrange(datos_ts,(FECHA_PRESENTACION))
 
 #datos_ts
 ```
+
 </p>
 
 <h3>Media Movil</h3>
 
-<p>
+<p>Para realizar analisìs de tendencia se realiza un promedio movil con k=5 de la variable Valor_FOB_USD y se crea un data set llamado prom_mov.</p>
 
-Para realizar analisìs de tendencia se realiza un promedio movil con k=5 de la variable Valor_FOB_USD y se crea un data set llamado prom_mov.
-
-</p>
 ```{r}
 prom_mov=ma(datos_ts$VALOR_FOB_USD,order = 5, centre = FALSE)
 prom_mov
 ```
 
-<p>
-Los datos que son parte del analisis de serie de tiempos (Cosmo_oil) se transforma en serie de tiempo, iniciando desde el años 2010 y estos estas distribuidos de manera mensual.
-
-</p>
+<p>Los datos que son parte del analisis de serie de tiempos (Cosmo_oil) se transforma en serie de tiempo, iniciando desde el años 2010 y estos estas distribuidos de manera mensual.</p>
 
 ```{r}
 serie=ts(data=datos_ts, start = 2010,frequency =12 )
 #serie
 ```
-<p>
-Para tener los datos con solo la serie de tiempo y el valor en dolares del kilo de insecticida, se elimina el campo fecha que viene del archivo original.
-</p>
+
+<p>Para tener los datos con solo la serie de tiempo y el valor en dolares del kilo de insecticida, se elimina el campo fecha que viene del archivo original.</p>
 
 ```{r}
 precios_ts=ts(serie[,2],start = 2010,frequency = 12)
@@ -103,9 +89,7 @@ library(tidyverse)
 
 ```
 
-<p>
-La secuencia de promedio movil se convierte en serie de tiempo usando la instrucciòn "ts"
-</p>
+<p>La secuencia de promedio movil se convierte en serie de tiempo usando la instrucciòn "ts"</p>
 
 ```{r}
 preciosMV_ts=ts(prom_mov,start = 2010,frequency = 12)
@@ -115,6 +99,7 @@ preciosMV_ts
 ```
 
 </p>
+
 ```{r}
 #install.packages("fpp2")
 library(fpp2)
@@ -123,12 +108,12 @@ library(fpp2)
 library(fpp)
 
 ```
+
 </p>
 
 Se realiza grafica del precio del insecticida y se incluye el comportamiento de la media movil usando valor de K=5
+
 </p>
-
-
 
 ```{r}
 
@@ -140,7 +125,6 @@ autoplot(precios_ts, series="USD/Kilo") +
 
 ```
 
-
 ```{r}
 serie_rezago_1 <- stats::lag(precios_ts, k=1)
 serie_rezago_2 <- stats::lag(precios_ts, k=2)
@@ -148,24 +132,34 @@ serie_rezago_2 <- stats::lag(precios_ts, k=2)
 serie_rezago_1
 serie_rezago_2
 ```
-<h3> Tendencia</h3>
 
+<h3>Tendencia</h3>
 
 <p>
+
 Realizando una evaluaciòn de la grafica anterior se observa:
 
- <ul>
-    <li>Al finalizar el año el precio del insecticida tiende a subir, lo cual puede ser una estacionalidad en los datos.</li>
-    <li>Al finalizar el 2015 el precio tiende a bajar</li>
-    <li>Se observa un incremento al finalizar el 2011</li>
-    <li>Entre el 2011 y 2025 se tiene valores similares</li>
-  </ul>
+<ul>
+
+<li>Al finalizar el año el precio del insecticida tiende a subir, lo cual puede ser una estacionalidad en los datos.</li>
+
+<li>Al finalizar el 2015 el precio tiende a bajar</li>
+
+<li>Se observa un incremento al finalizar el 2011</li>
+
+<li>Entre el 2011 y 2025 se tiene valores similares</li>
+
+</ul>
+
 </p>
+
 ```{r}
 
 autoplot(precios_ts, series="USD/Kilo") + autolayer(preciosMV_ts,series = "Prom_Mov_5") + autolayer(serie_rezago_1, series="Rezago_1") + autolayer(serie_rezago_2, series="Rezago_2")+ ylab("USD/Kilo")+ xlab("tiempo")
 
 ```
+
+# Unidad 3
 
 <h2>Actividad 3</h2>
 
@@ -175,13 +169,15 @@ autoplot(precios_ts, series="USD/Kilo") + autolayer(preciosMV_ts,series = "Prom_
 
 Se realiza grafica de descomposicion de:
 
- <ul>
-    <li>Tendencia.</li>
-    <li>Estacionalidad</li>
-    <li>Residuo</li>
-  </ul>
+<ul>
 
+<li>Tendencia.</li>
 
+<li>Estacionalidad</li>
+
+<li>Residuo</li>
+
+</ul>
 
 ```{r}
 install.packages("ggfortify", repos = "http://cran.us.r-project.org")
@@ -195,20 +191,16 @@ autoplot(fit)+labs(title = "Descomposición de la serie de tiempo",
                    colour="gears")+
   theme_bw()
 ```
-<p>
-Se observa que hay tendecia al inicio y final de la serie. 
-Con el fin de evaluar la estacionalidad se debe realizar grafica y prueba de Dickey-Fuller
-</p>
+
+<p>Se observa que hay tendecia al inicio y final de la serie. Con el fin de evaluar la estacionalidad se debe realizar grafica y prueba de Dickey-Fuller</p>
 
 <h3>Estacionalidad</h3>
-
 
 ```{r}
 ggseasonplot(precios_ts)
 ```
+
 <h3>Prueba de Dickey- Fuller</h3>
-
-
 
 ```{r}
 adf_usd <- adf.test(precios_ts)
@@ -216,22 +208,24 @@ adf_usd
 ```
 
 <p>
+
 Dado que el valor p (0.08223) es mayor que un nivel de significancia común como 0.05, no hay suficiente evidencia para rechazar la hipótesis nula de que la serie de tiempo tiene raíces unitarias, lo que sugiere que la serie de tiempo es no estacionaria. Sin embargo, es importante tener en cuenta que el valor p está cerca del nivel de significancia, por lo que podría haber una tendencia hacia la estacionariedad, como lo menciona el resultado "stationary"
 
 Ante este resultado la serie de tiempo se considerarà no estacionaria
 
 Con el fin de identificar la necesidad de validar la necesidad de realizar un ajuste de estacionalidad se hace la prueba ndiffs. el resultado es uno, por lo tanto se realizarà una transformaciòn
+
 </p>
 
 ```{r}
 ndiffs(precios_ts)
 ```
 
-
 ```{r}
 #Funcion de autocorrelacion
 acf(precios_ts)
 ```
+
 <p>al realizar un proceso de diferenciaciòn se valida, que ya no es necesario realizar una nueva</p>
 
 ```{r}
@@ -244,10 +238,8 @@ ndiffs(seriedif)
 
 
 ```
-<p>
-Se tiene como resultado una serie de tiempo estacional y se puede apreciar al comparar los graficos antes y despues del ajuste diferenciado.
 
-</p>
+<p>Se tiene como resultado una serie de tiempo estacional y se puede apreciar al comparar los graficos antes y despues del ajuste diferenciado.</p>
 
 ```{r}
 
