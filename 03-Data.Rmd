@@ -1,6 +1,6 @@
 ---
 title: "Data"
-author: "David"
+author: ""
 date: "2024-05-04"
 output: html_document
 ---
@@ -23,7 +23,7 @@ datos <- read.xlsx("importacionestriadadef.xlsx")
 
 <h2>Actividad 2</h2>
 
-<h3>Selecciòn de datos</h3>
+<h3>Selección de datos</h3>
 
 <p>
 Se realiza analisis de la informacion de los diferente importadores de pesticidas, se encuentran diversas empresas importadoras y con diversos componentes o prodcutos a importar. al evaluar se identifica que la empresa TRIADA EMA S.A. SUCURSAL COLOMBIA importa un producto llamado Cosmo-Oil que hace parte del grupo de insecticidas, se tienen registros desde el 2010 al 2016, para un total de 73 registros.
@@ -34,7 +34,7 @@ summary(datos)
 ```
 
 <p>
-De total de los datos se seleccionan los campos "Fecha_Presentaciòn" y "Valor_FOB_USD", este ultimo corresponde al precio por kilo del insecticida.
+De total de los datos se seleccionan los campos "Fecha_Presentación" y "Valor_FOB_USD", este ultimo corresponde al precio por kilo del insecticida.
 
 </p>
 
