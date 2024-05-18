@@ -7,3 +7,11 @@ creación-del-dataset
 limpieza-de-los-datos
 prerequisites
 información-de-los-datos-existentes
+unidad-2
+unidad-3
+unidad-3-1
+unidad-4
+aplicamos-el-modelo
+aplicamos-el-modelo-holt-winters
+descomponer-de-acuerdo-a-características
+unidad-4-1

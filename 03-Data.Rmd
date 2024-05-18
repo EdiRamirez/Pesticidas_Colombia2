@@ -180,8 +180,6 @@ Se realiza grafica de descomposicion de:
 </ul>
 
 ```{r}
-install.packages("ggfortify", repos = "http://cran.us.r-project.org")
-
 fit <-decompose(precios_ts,type = "additive")
 library(ggfortify)
 

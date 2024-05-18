@@ -1,0 +1,184 @@
+---
+title: "Holt-Winter"
+author: ""
+date: "2024-05-17"
+output: html_document
+---
+
+# Unidad 4
+
+<h2>Actividad 4</h2>
+
+
+Importar paquetes:
+
+```{r}
+library(vars)
+library(TSA)
+```
+<p>Cargar los datos</p>
+
+```{r}
+# Cargar el paquete si aún no lo tienes cargado
+library(openxlsx)
+
+# Leer el archivo Excel que ya tienes cargado
+datos <- read.xlsx("importacionestriadadef.xlsx")
+summary(datos)
+
+```
+
+
+<p>De total de los datos se seleccionan los campos "Fecha_Presentación" y "Valor_FOB_USD", este ultimo corresponde al precio por kilo del insecticida.</p>
+
+Se reestablece el formato fecha para trabajar con los datos
+
+```{r pressure, echo=FALSE}
+datos_ts <- datos[, c("FECHA_PRESENTACION", "VALOR_FOB_USD")]
+datos_ts$FECHA_PRESENTACION <- as.Date(datos_ts$FECHA_PRESENTACION, origin = "1899-12-30")
+#datos_ts
+
+```
+
+<p>Al importar los datos de excel se requiere organizarlos en orden ascendente de acuerdo a la fecha.</p>
+
+```{r}
+
+# Cargar el paquete
+library(dplyr)
+library(zoo)
+library(forecast)
+
+datos_ts <- arrange(datos_ts,(FECHA_PRESENTACION))
+
+#datos_ts
+```
+
+<p>Los datos que son parte del analisis de serie de tiempos (Cosmo_oil) se transforma en serie de tiempo, iniciando desde el años 2010 y estos estas distribuidos de manera mensual.</p>
+
+```{r}
+serie=ts(data=datos_ts, start = 2010,frequency =12 )
+#serie
+```
+
+<p>Para tener los datos con solo la serie de tiempo y el valor en dolares del kilo de insecticida, se elimina el campo fecha que viene del archivo original.</p>
+
+```{r}
+precios_ts=ts(serie[,2],start = 2010,frequency = 12)
+precios_ts
+#plot(precios_ts)
+```
+
+```{r}
+#install.packages("tidyverse")
+#install.packages("forecast")
+#install.packages("purrr")
+
+library(purrr)
+library(tidyverse)
+
+```
+
+<p>La secuencia de promedio movil se convierte en serie de tiempo usando la instrucciòn "ts"</p>
+
+```{r}
+preciosMV_ts=ts(precios_ts,start = 2010, frequency = 12)
+preciosMV_ts
+#plot(preciosMV_ts)
+
+```
+<h3>Descomposiòn</h3>
+
+Se realiza grafica de descomposicion de:
+
+<ul>
+
+<li>Tendencia.</li>
+
+<li>Estacionalidad</li>
+
+<li>Residuo</li>
+
+</ul>
+
+```{r}
+fit <-decompose(preciosMV_ts,type = "additive")
+library(ggfortify)
+
+```
+
+Graficamos la tendencia
+
+```{r}
+#datos_ts
+
+str(precios_ts)
+View(precios_ts)
+plot(precios_ts)
+summary(precios_ts)
+class(precios_ts)
+
+```
+Observamos características
+
+
+```{r}
+#datos_ts
+
+class(precios_ts)
+start(precios_ts)
+end(precios_ts)
+frequency(precios_ts)
+summary(precios_ts)
+
+```
+
+Observar tendencia y ciclos
+```{r}
+plot(precios_ts)
+abline(reg=lm(precios_ts~time(precios_ts)))
+cycle(precios_ts)
+```
+
+Observamos información de los meses en los datos
+
+```{r}
+boxplot(precios_ts~cycle(precios_ts))
+
+```
+
+Se observan valores de media similares en los meses, generando unas pequeñas diferencias entre los meses de marzo, abril y mayo en donde la variación es más alta y datos muy similares desde el mes de agosto hasta diciembre
+
+
+Se agrega información logarítmica para observar mejor los datos
+```{r}
+plot(log(precios_ts), ylab="log(precios_ts)", xlab="Año", main="Logaritmo de precios")
+
+```
+## Aplicamos el modelo Holt-Winters
+```{r}
+modelo_HW=HoltWinters(log(preciosMV_ts), seasonal = "additive")
+plot(modelo_HW, main="Ajuste con Holt-Winter", xlab="año", ylab="Logaritmo de precios")
+
+```
+Se observa una aproximación a los datos originales pero no es tan cercana
+
+## Descomponer de acuerdo a características
+
+```{r}
+plot(fitted(modelo_HW), main = "Descomposición con HW", xlab = "Año", ylab = "Logaritmo de precios")
+
+```
+Realizamos corroboración del modelo partiendo de los datos que nos genere el modelo
+
+
+```{r}
+pred = predict(modelo_HW, 6, prediction.interval = TRUE)
+pred
+```
+
+```{r}
+plot(modelo_HW, pred)
+```
+La linea roja representa los valores generados por el modelo. Al momento de predecir, teniendo en cuenta los parámetros usados podemos pensar que aunque si genera un valor de predicción, no podemos comprara si el valor es ajustado a la realidad por la falta de datos y adicional, se vincula mucho con el dato anterior y al estar cercano a los valores reales en el 2012 pero tan alejados en el 2015 no se podría concluir realmente con esta información. 
+
