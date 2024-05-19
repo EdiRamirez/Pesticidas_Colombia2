@@ -1,5 +1,5 @@
 ---
-title: "Holt-Winter"
+title: "ARIMA"
 author: ""
 date: "2024-05-17"
 output: html_document
