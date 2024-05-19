@@ -1,13 +1,13 @@
 ---
-title: "Data"
+title: "Holt-Winter"
 author: ""
-date: "2024-05-04"
+date: "2024-05-17"
 output: html_document
 ---
 
-# Unidad 4
+# Unidad 5
 
-<h2>Actividad 4</h2>
+<h2>Actividad 5</h2>
 
 
 Importar paquetes:
@@ -139,3 +139,61 @@ plot(precios_ts)
 abline(reg=lm(precios_ts~time(precios_ts)))
 cycle(precios_ts)
 ```
+
+Observamos información de los meses en los datos
+
+```{r}
+boxplot(precios_ts~cycle(precios_ts))
+
+```
+
+Se observan valores de media similares en los meses, generando unas pequeñas diferencias entre los meses de marzo, abril y mayo en donde la variación es más alta y datos muy similares desde el mes de agosto hasta diciembre
+
+
+Se agrega información logarítmica para observar mejor los datos
+```{r}
+plot(log(precios_ts), ylab="log(precios_ts)", xlab="Año", main="Logaritmo de precios")
+
+```
+
+## Transformar a estacionaria
+
+Procedemos a transformar nuestra serie, para que sea estacionaria, haciendo uso de la función adf.
+```{r}
+library(aTSA)
+
+```
+```{r}
+adf.test(diff(log(precios_ts)))
+```
+Ajustamos
+```{r}
+library(forecast)
+```
+
+```{r}
+modelo<-auto.arima(diff(log(precios_ts)))
+```
+
+```{r}
+pronostico<- forecast::forecast(modelo,12)
+plot(pronostico,main="Pronóstico con auto.arima",xlab="Año",ylab="log(airmiles)")
+grid()
+
+```
+
+```{r}
+residuales<-modelo$residuals
+qqnorm(residuales)
+qqline(residuales)
+```
+
+```{r}
+shapiro.test(residuales)
+```
+
+```{r}
+Box.test(residuales,type = "Ljung-Box")
+```
+
+Teniendo en cuenta la variación de los datos, la aproximación del modelo de predicción no es tan ajustado a lo esperado. 

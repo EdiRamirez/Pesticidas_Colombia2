@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 5 Unidad 4 | Data</title>
+  <title>Capítulo 4 Unidad 4 | Holt-Winter</title>
   <meta name="description" content="PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 5 Unidad 4 | Data" />
+  <meta property="og:title" content="Capítulo 4 Unidad 4 | Holt-Winter" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 5 Unidad 4 | Data" />
+  <meta name="twitter:title" content="Capítulo 4 Unidad 4 | Holt-Winter" />
   
   <meta name="twitter:description" content="PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2024-05-04" />
+<meta name="date" content="2024-05-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -150,13 +150,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#limpieza-de-los-datos"><i class="fa fa-check"></i><b>1.6</b> Limpieza de los Datos</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="unidad-2.html"><a href="unidad-2.html"><i class="fa fa-check"></i><b>2</b> Unidad 2</a></li>
-<li class="chapter" data-level="3" data-path="unidad-3.html"><a href="unidad-3.html"><i class="fa fa-check"></i><b>3</b> Unidad 3</a></li>
-<li class="chapter" data-level="4" data-path="unidad-4.html"><a href="unidad-4.html"><i class="fa fa-check"></i><b>4</b> Unidad 4</a>
+<li class="chapter" data-level="3" data-path="unidad-4.html"><a href="unidad-4.html"><i class="fa fa-check"></i><b>3</b> Unidad 4</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="unidad-4.html"><a href="unidad-4.html#aplicamos-el-modelo-holt-winters"><i class="fa fa-check"></i><b>4.1</b> Aplicamos el modelo Holt-Winters</a></li>
-<li class="chapter" data-level="4.2" data-path="unidad-4.html"><a href="unidad-4.html#descomponer-de-acuerdo-a-características"><i class="fa fa-check"></i><b>4.2</b> Descomponer de acuerdo a características</a></li>
+<li class="chapter" data-level="3.1" data-path="unidad-4.html"><a href="unidad-4.html#aplicamos-el-modelo-holt-winters"><i class="fa fa-check"></i><b>3.1</b> Aplicamos el modelo Holt-Winters</a></li>
+<li class="chapter" data-level="3.2" data-path="unidad-4.html"><a href="unidad-4.html#descomponer-de-acuerdo-a-características"><i class="fa fa-check"></i><b>3.2</b> Descomponer de acuerdo a características</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="unidad-4-1.html"><a href="unidad-4-1.html"><i class="fa fa-check"></i><b>5</b> Unidad 4</a></li>
+<li class="chapter" data-level="4" data-path="unidad-4-1.html"><a href="unidad-4-1.html"><i class="fa fa-check"></i><b>4</b> Unidad 4</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -169,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Holt-Winter</a>
           </h1>
         </div>
 
@@ -177,8 +176,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="unidad-4-1" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Capítulo 5</span> Unidad 4<a href="unidad-4-1.html#unidad-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="unidad-4-1" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Unidad 4<a href="unidad-4-1.html#unidad-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <h2>
 Actividad 4
 </h2>
@@ -412,6 +411,13 @@ Residuo
 ## 2014   1   2   3   4   5   6   7   8   9  10  11  12
 ## 2015   1   2   3   4   5   6   7   8   9  10  11  12
 ## 2016   1</code></pre>
+<p>Observamos información de los meses en los datos</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="unidad-4-1.html#cb74-1" tabindex="-1"></a><span class="fu">boxplot</span>(precios_ts<span class="sc">~</span><span class="fu">cycle</span>(precios_ts))</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Se observan valores de media similares en los meses, generando unas pequeñas diferencias entre los meses de marzo, abril y mayo en donde la variación es más alta y datos muy similares desde el mes de agosto hasta diciembre</p>
+<p>Se agrega información logarítmica para observar mejor los datos</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="unidad-4-1.html#cb75-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(precios_ts), <span class="at">ylab=</span><span class="st">&quot;log(precios_ts)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Año&quot;</span>, <span class="at">main=</span><span class="st">&quot;Logaritmo de precios&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 
 </div>
             </section>

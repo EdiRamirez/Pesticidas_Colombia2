@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Unidad 4 | Holt-Winter</title>
+  <title>Capítulo 3 Unidad 4 | Holt-Winter</title>
   <meta name="description" content="PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Unidad 4 | Holt-Winter" />
+  <meta property="og:title" content="Capítulo 3 Unidad 4 | Holt-Winter" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Unidad 4 | Holt-Winter" />
+  <meta name="twitter:title" content="Capítulo 3 Unidad 4 | Holt-Winter" />
   
   <meta name="twitter:description" content="PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="unidad-3.html"/>
-<link rel="next" href="unidad-4-1.html"/>
+<link rel="prev" href="unidad-2.html"/>
+<link rel="next" href="unidad-5.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -150,12 +150,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#limpieza-de-los-datos"><i class="fa fa-check"></i><b>1.6</b> Limpieza de los Datos</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="unidad-2.html"><a href="unidad-2.html"><i class="fa fa-check"></i><b>2</b> Unidad 2</a></li>
-<li class="chapter" data-level="3" data-path="unidad-3.html"><a href="unidad-3.html"><i class="fa fa-check"></i><b>3</b> Unidad 3</a></li>
-<li class="chapter" data-level="4" data-path="unidad-4.html"><a href="unidad-4.html"><i class="fa fa-check"></i><b>4</b> Unidad 4</a>
+<li class="chapter" data-level="3" data-path="unidad-4.html"><a href="unidad-4.html"><i class="fa fa-check"></i><b>3</b> Unidad 4</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="unidad-4.html"><a href="unidad-4.html#descomponer-de-acuerdo-a-características"><i class="fa fa-check"></i><b>4.1</b> Descomponer de acuerdo a características</a></li>
+<li class="chapter" data-level="3.1" data-path="unidad-4.html"><a href="unidad-4.html#descomponer-de-acuerdo-a-características"><i class="fa fa-check"></i><b>3.1</b> Descomponer de acuerdo a características</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="unidad-4-1.html"><a href="unidad-4-1.html"><i class="fa fa-check"></i><b>5</b> Unidad 4</a></li>
+<li class="chapter" data-level="4" data-path="unidad-5.html"><a href="unidad-5.html"><i class="fa fa-check"></i><b>4</b> Unidad 5</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="unidad-5.html"><a href="unidad-5.html#transformar-a-estacionaria"><i class="fa fa-check"></i><b>4.1</b> Transformar a estacionaria</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -176,8 +178,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="unidad-4" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Capítulo 4</span> Unidad 4<a href="unidad-4.html#unidad-4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="unidad-4" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Unidad 4<a href="unidad-4.html#unidad-4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <h2>
 Actividad 4
 </h2>
@@ -423,8 +425,8 @@ Residuo
 <span id="cb76-2"><a href="unidad-4.html#cb76-2" tabindex="-1"></a><span class="fu">plot</span>(modelo_HW, <span class="at">main=</span><span class="st">&quot;Ajuste con Holt-Winter&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;año&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Logaritmo de precios&quot;</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 Se observa una aproximación a los datos originales pero no es tan cercana</p>
-<div id="descomponer-de-acuerdo-a-características" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Descomponer de acuerdo a características<a href="unidad-4.html#descomponer-de-acuerdo-a-características" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="descomponer-de-acuerdo-a-características" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Descomponer de acuerdo a características<a href="unidad-4.html#descomponer-de-acuerdo-a-características" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="unidad-4.html#cb77-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">fitted</span>(modelo_HW), <span class="at">main =</span> <span class="st">&quot;Descomposición con HW&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Año&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Logaritmo de precios&quot;</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 Realizamos corroboración del modelo partiendo de los datos que nos genere el modelo</p>
@@ -448,8 +450,8 @@ La linea roja representa los valores generados por el modelo. Al momento de pred
           </div>
         </div>
       </div>
-<a href="unidad-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="unidad-4-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="unidad-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

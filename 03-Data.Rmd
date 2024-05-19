@@ -165,7 +165,7 @@ autoplot(precios_ts, series="USD/Kilo") + autolayer(preciosMV_ts,series = "Prom_
 
 <p>Se debe documentar la descomposiciòn, la estacinariedad y la diferenciaciòn</p>
 
-<h3>Descomposiòn</h3>
+<h3>Descomposión</h3>
 
 Se realiza grafica de descomposicion de:
 
