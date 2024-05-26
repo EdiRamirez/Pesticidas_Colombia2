@@ -1,5 +1,5 @@
 ---
-title: "Regresión"
+title: "Prophet"
 author: ""
 date: "2024-05-25"
 output: html_document
