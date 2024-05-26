@@ -88,7 +88,7 @@ A continuación, se crea una trama. Podemos ver que los datos de entrenamiento e
 Podemos ver que los años previstos coinciden bien con las observaciones reales, especialmente si se tienen en cuenta los límites.
 
 ```{r}
-dyplot.prophet(Model1, Pronostico)
+plot(Model1, Pronostico)
 ```
 
 
