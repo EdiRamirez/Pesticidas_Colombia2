@@ -1,0 +1,101 @@
+---
+title: "Regresión"
+author: ""
+date: "2024-05-25"
+output: html_document
+---
+
+# Unidad 6
+
+Actividad 6
+
+Cargar los datos
+
+```{r}
+# Cargar el paquete si aún no lo tienes cargado
+library(openxlsx)
+
+# Leer el archivo Excel que ya tienes cargado
+datos <- read.xlsx("importacionestriadadef.xlsx")
+summary(datos)
+
+```
+
+
+Del total de los datos se seleccionan los campos "Fecha_Presentación" y "Valor_FOB_USD", este ultimo corresponde al precio por kilo del insecticida.
+
+Se reestablece el formato fecha para trabajar con los datos
+
+```{r pressure, echo=FALSE}
+datos_ts <- datos[, c("FECHA_PRESENTACION", "VALOR_FOB_USD")]
+datos_ts$FECHA_PRESENTACION <- as.Date(datos_ts$FECHA_PRESENTACION, origin = "1899-12-30")
+#datos_ts
+
+```
+
+Al importar los datos de excel se requiere organizarlos en orden ascendente de acuerdo a la fecha
+
+```{r}
+
+# Cargar el paquete
+library(dplyr)
+library(zoo)
+library(forecast)
+
+datos_ts <- arrange(datos_ts,(FECHA_PRESENTACION))
+
+datos_ts
+```
+
+Se cargan librerías para el análisis con el modelo
+
+```{r}
+library(ggplot2)
+library(fpp3)
+library(prophet)
+```
+
+Se cambian los nombres de las columnas para trabajar con el modelo
+
+```{r}
+colnames(datos_ts)[1] <-"ds"
+colnames(datos_ts)[2] <-"y"
+```
+
+```{r}
+plot(datos_ts)
+```
+
+Se ajustan los parámetros del modelo 
+
+```{r}
+Model1 <- prophet(datos_ts)
+Future <- make_future_dataframe(Model1, periods = 365)
+tail(Future)
+```
+
+Mostrar las primeras filas de las predicciones
+
+```{r}
+#Forecast
+Pronostico <- predict(Model1, Future)
+tail(Pronostico[c("ds", "yhat", "yhat_lower", "yhat_upper")])
+
+```
+
+A continuación, se crea una trama. Podemos ver que los datos de entrenamiento están representados como puntos negros y el pronóstico es una línea azul con límites superior e inferior en un área sombreada en azul.
+
+Podemos ver que los años previstos coinciden bien con las observaciones reales, especialmente si se tienen en cuenta los límites.
+
+```{r}
+dyplot.prophet(Model1, Pronostico)
+```
+
+
+Para visualizar los componentes del modelo (tendencia, estacionalidad) se realiza visualización de estos componentes que nos da una idea del comportamiento de los datos anualmente y por día del año
+
+```{r}
+prophet_plot_components(Model1, Pronostico)
+```
+
+El pronóstico y las visualizaciones de los componentes muestran que Prophet pudo modelar con precisión la tendencia subyacente en los datos, al mismo tiempo que modeló con precisión la estacionalidad diaria y anual 

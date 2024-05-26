@@ -17,3 +17,5 @@ descomponer-de-acuerdo-a-características
 unidad-4-1
 unidad-5
 transformar-a-estacionaria
+unidad-6
+transformar-a-estacionaria-1
