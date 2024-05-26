@@ -362,12 +362,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb46-2"><a href="unidad-6.html#cb46-2" tabindex="-1"></a>Pronostico <span class="ot">&lt;-</span> <span class="fu">predict</span>(Model1, Future)</span>
 <span id="cb46-3"><a href="unidad-6.html#cb46-3" tabindex="-1"></a><span class="fu">tail</span>(Pronostico[<span class="fu">c</span>(<span class="st">&quot;ds&quot;</span>, <span class="st">&quot;yhat&quot;</span>, <span class="st">&quot;yhat_lower&quot;</span>, <span class="st">&quot;yhat_upper&quot;</span>)])</span></code></pre></div>
 <pre><code>##             ds     yhat yhat_lower yhat_upper
-## 433 2017-01-26 7.271938   6.561152   7.999532
-## 434 2017-01-27 6.690441   5.912626   7.397332
-## 435 2017-01-28 6.057413   5.334166   6.742287
-## 436 2017-01-29 5.383918   4.630458   6.124277
-## 437 2017-01-30 4.682163   3.942451   5.361260
-## 438 2017-01-31 3.965203   3.261865   4.688365</code></pre>
+## 433 2017-01-26 7.271938   6.572754   7.994338
+## 434 2017-01-27 6.690441   5.954931   7.417334
+## 435 2017-01-28 6.057413   5.327731   6.777979
+## 436 2017-01-29 5.383918   4.683922   6.095615
+## 437 2017-01-30 4.682163   3.982636   5.404280
+## 438 2017-01-31 3.965203   3.302080   4.676529</code></pre>
 <p>A continuación, se crea una trama. Podemos ver que los datos de entrenamiento están representados como puntos negros y el pronóstico es una línea azul con límites superior e inferior en un área sombreada en azul.</p>
 <p>Podemos ver que los años previstos coinciden bien con las observaciones reales, especialmente si se tienen en cuenta los límites.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="unidad-6.html#cb48-1" tabindex="-1"></a><span class="fu">plot</span>(Model1, Pronostico)</span></code></pre></div>
