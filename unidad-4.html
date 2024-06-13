@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Unidad 4 | Holt-Winter</title>
+  <title>Capítulo 3 Unidad 4 | Holt-Winter</title>
   <meta name="description" content="PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS." />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Unidad 4 | Holt-Winter" />
+  <meta property="og:title" content="Capítulo 3 Unidad 4 | Holt-Winter" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Unidad 4 | Holt-Winter" />
+  <meta name="twitter:title" content="Capítulo 3 Unidad 4 | Holt-Winter" />
   
   <meta name="twitter:description" content="PREDICCIÓN PARA EL PRECIO DE IMPORTACIÓN DE LOS PESTICIDAS." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="unidad-4.html"/>
-
+<link rel="prev" href="unidad-2.html"/>
+<link rel="next" href="unidad-5.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -152,10 +152,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="unidad-2.html"><a href="unidad-2.html"><i class="fa fa-check"></i><b>2</b> Unidad 2</a></li>
 <li class="chapter" data-level="3" data-path="unidad-4.html"><a href="unidad-4.html"><i class="fa fa-check"></i><b>3</b> Unidad 4</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="unidad-4.html"><a href="unidad-4.html#aplicamos-el-modelo-holt-winters"><i class="fa fa-check"></i><b>3.1</b> Aplicamos el modelo Holt-Winters</a></li>
-<li class="chapter" data-level="3.2" data-path="unidad-4.html"><a href="unidad-4.html#descomponer-de-acuerdo-a-características"><i class="fa fa-check"></i><b>3.2</b> Descomponer de acuerdo a características</a></li>
+<li class="chapter" data-level="3.1" data-path="unidad-4.html"><a href="unidad-4.html#descomponer-de-acuerdo-a-características"><i class="fa fa-check"></i><b>3.1</b> Descomponer de acuerdo a características</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="unidad-4-1.html"><a href="unidad-4-1.html"><i class="fa fa-check"></i><b>4</b> Unidad 4</a></li>
+<li class="chapter" data-level="4" data-path="unidad-5.html"><a href="unidad-5.html"><i class="fa fa-check"></i><b>4</b> Unidad 5</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="unidad-5.html"><a href="unidad-5.html#transformar-a-estacionaria"><i class="fa fa-check"></i><b>4.1</b> Transformar a estacionaria</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="unidad-6.html"><a href="unidad-6.html"><i class="fa fa-check"></i><b>5</b> Unidad 6</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -176,13 +179,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="unidad-4-1" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Capítulo 4</span> Unidad 4<a href="unidad-4-1.html#unidad-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="unidad-4" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Unidad 4<a href="unidad-4.html#unidad-4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <h2>
 Actividad 4
 </h2>
 <p>Importar paquetes:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="unidad-4-1.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(vars)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="unidad-4.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(vars)</span></code></pre></div>
 <pre><code>## Warning: package &#39;vars&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## Loading required package: MASS</code></pre>
 <pre><code>## Loading required package: strucchange</code></pre>
@@ -200,7 +203,7 @@ Actividad 4
 <pre><code>## Warning: package &#39;urca&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## Loading required package: lmtest</code></pre>
 <pre><code>## Warning: package &#39;lmtest&#39; was built under R version 4.2.3</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="unidad-4-1.html#cb16-1" tabindex="-1"></a><span class="fu">library</span>(TSA)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="unidad-4.html#cb16-1" tabindex="-1"></a><span class="fu">library</span>(TSA)</span></code></pre></div>
 <pre><code>## Warning: package &#39;TSA&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;TSA&#39;</code></pre>
@@ -213,12 +216,12 @@ Actividad 4
 <p>
 Cargar los datos
 </p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="unidad-4-1.html#cb21-1" tabindex="-1"></a><span class="co"># Cargar el paquete si aún no lo tienes cargado</span></span>
-<span id="cb21-2"><a href="unidad-4-1.html#cb21-2" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="unidad-4.html#cb21-1" tabindex="-1"></a><span class="co"># Cargar el paquete si aún no lo tienes cargado</span></span>
+<span id="cb21-2"><a href="unidad-4.html#cb21-2" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div>
 <pre><code>## Warning: package &#39;openxlsx&#39; was built under R version 4.2.3</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="unidad-4-1.html#cb23-1" tabindex="-1"></a><span class="co"># Leer el archivo Excel que ya tienes cargado</span></span>
-<span id="cb23-2"><a href="unidad-4-1.html#cb23-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">&quot;importacionestriadadef.xlsx&quot;</span>)</span>
-<span id="cb23-3"><a href="unidad-4-1.html#cb23-3" tabindex="-1"></a><span class="fu">summary</span>(datos)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="unidad-4.html#cb23-1" tabindex="-1"></a><span class="co"># Leer el archivo Excel que ya tienes cargado</span></span>
+<span id="cb23-2"><a href="unidad-4.html#cb23-2" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">&quot;importacionestriadadef.xlsx&quot;</span>)</span>
+<span id="cb23-3"><a href="unidad-4.html#cb23-3" tabindex="-1"></a><span class="fu">summary</span>(datos)</span></code></pre></div>
 <pre><code>##     Fecha                Año           Mes              Año-mes         
 ##  Length:73          Min.   :2010   Length:73          Length:73         
 ##  Class :character   1st Qu.:2011   Class :character   Class :character  
@@ -240,8 +243,8 @@ De total de los datos se seleccionan los campos “Fecha_Presentación” y “V
 <p>
 Al importar los datos de excel se requiere organizarlos en orden ascendente de acuerdo a la fecha.
 </p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="unidad-4-1.html#cb25-1" tabindex="-1"></a><span class="co"># Cargar el paquete</span></span>
-<span id="cb25-2"><a href="unidad-4-1.html#cb25-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="unidad-4.html#cb25-1" tabindex="-1"></a><span class="co"># Cargar el paquete</span></span>
+<span id="cb25-2"><a href="unidad-4.html#cb25-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
@@ -254,8 +257,8 @@ Al importar los datos de excel se requiere organizarlos en orden ascendente de a
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="unidad-4-1.html#cb31-1" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
-<span id="cb31-2"><a href="unidad-4-1.html#cb31-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="unidad-4.html#cb31-1" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
+<span id="cb31-2"><a href="unidad-4.html#cb31-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
 <pre><code>## Warning: package &#39;forecast&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
 ##   method            from
@@ -264,19 +267,19 @@ Al importar los datos de excel se requiere organizarlos en orden ascendente de a
 ##   method       from
 ##   fitted.Arima TSA 
 ##   plot.Arima   TSA</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="unidad-4-1.html#cb35-1" tabindex="-1"></a>datos_ts <span class="ot">&lt;-</span> <span class="fu">arrange</span>(datos_ts,(FECHA_PRESENTACION))</span>
-<span id="cb35-2"><a href="unidad-4-1.html#cb35-2" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="unidad-4-1.html#cb35-3" tabindex="-1"></a><span class="co">#datos_ts</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="unidad-4.html#cb35-1" tabindex="-1"></a>datos_ts <span class="ot">&lt;-</span> <span class="fu">arrange</span>(datos_ts,(FECHA_PRESENTACION))</span>
+<span id="cb35-2"><a href="unidad-4.html#cb35-2" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="unidad-4.html#cb35-3" tabindex="-1"></a><span class="co">#datos_ts</span></span></code></pre></div>
 <p>
 Los datos que son parte del analisis de serie de tiempos (Cosmo_oil) se transforma en serie de tiempo, iniciando desde el años 2010 y estos estas distribuidos de manera mensual.
 </p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="unidad-4-1.html#cb36-1" tabindex="-1"></a>serie<span class="ot">=</span><span class="fu">ts</span>(<span class="at">data=</span>datos_ts, <span class="at">start =</span> <span class="dv">2010</span>,<span class="at">frequency =</span><span class="dv">12</span> )</span>
-<span id="cb36-2"><a href="unidad-4-1.html#cb36-2" tabindex="-1"></a><span class="co">#serie</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="unidad-4.html#cb36-1" tabindex="-1"></a>serie<span class="ot">=</span><span class="fu">ts</span>(<span class="at">data=</span>datos_ts, <span class="at">start =</span> <span class="dv">2010</span>,<span class="at">frequency =</span><span class="dv">12</span> )</span>
+<span id="cb36-2"><a href="unidad-4.html#cb36-2" tabindex="-1"></a><span class="co">#serie</span></span></code></pre></div>
 <p>
 Para tener los datos con solo la serie de tiempo y el valor en dolares del kilo de insecticida, se elimina el campo fecha que viene del archivo original.
 </p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="unidad-4-1.html#cb37-1" tabindex="-1"></a>precios_ts<span class="ot">=</span><span class="fu">ts</span>(serie[,<span class="dv">2</span>],<span class="at">start =</span> <span class="dv">2010</span>,<span class="at">frequency =</span> <span class="dv">12</span>)</span>
-<span id="cb37-2"><a href="unidad-4-1.html#cb37-2" tabindex="-1"></a>precios_ts</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="unidad-4.html#cb37-1" tabindex="-1"></a>precios_ts<span class="ot">=</span><span class="fu">ts</span>(serie[,<span class="dv">2</span>],<span class="at">start =</span> <span class="dv">2010</span>,<span class="at">frequency =</span> <span class="dv">12</span>)</span>
+<span id="cb37-2"><a href="unidad-4.html#cb37-2" tabindex="-1"></a>precios_ts</span></code></pre></div>
 <pre><code>##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug
 ## 2010 2.828185 2.834620 3.854530 2.916667 4.409457 4.636978 3.571429 4.855076
 ## 2011 5.179527 4.704291 3.571429 4.974490 3.899573 5.014854 5.325329 4.851072
@@ -293,21 +296,21 @@ Para tener los datos con solo la serie de tiempo y el valor en dolares del kilo 
 ## 2014 4.140230 7.006366 3.953889 3.976744
 ## 2015 3.419432 3.419467 3.506439 3.558834
 ## 2016</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="unidad-4-1.html#cb39-1" tabindex="-1"></a><span class="co">#plot(precios_ts)</span></span></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="unidad-4-1.html#cb40-1" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
-<span id="cb40-2"><a href="unidad-4-1.html#cb40-2" tabindex="-1"></a><span class="co">#install.packages(&quot;forecast&quot;)</span></span>
-<span id="cb40-3"><a href="unidad-4-1.html#cb40-3" tabindex="-1"></a><span class="co">#install.packages(&quot;purrr&quot;)</span></span>
-<span id="cb40-4"><a href="unidad-4-1.html#cb40-4" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="unidad-4-1.html#cb40-5" tabindex="-1"></a><span class="fu">library</span>(purrr)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="unidad-4.html#cb39-1" tabindex="-1"></a><span class="co">#plot(precios_ts)</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="unidad-4.html#cb40-1" tabindex="-1"></a><span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
+<span id="cb40-2"><a href="unidad-4.html#cb40-2" tabindex="-1"></a><span class="co">#install.packages(&quot;forecast&quot;)</span></span>
+<span id="cb40-3"><a href="unidad-4.html#cb40-3" tabindex="-1"></a><span class="co">#install.packages(&quot;purrr&quot;)</span></span>
+<span id="cb40-4"><a href="unidad-4.html#cb40-4" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="unidad-4.html#cb40-5" tabindex="-1"></a><span class="fu">library</span>(purrr)</span></code></pre></div>
 <pre><code>## Warning: package &#39;purrr&#39; was built under R version 4.2.3</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="unidad-4-1.html#cb42-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="unidad-4.html#cb42-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## Warning: package &#39;tibble&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
 ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
 ## ✔ readr     2.1.4     
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -320,8 +323,8 @@ Para tener los datos con solo la serie de tiempo y el valor en dolares del kilo 
 <p>
 La secuencia de promedio movil se convierte en serie de tiempo usando la instrucciòn “ts”
 </p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="unidad-4-1.html#cb48-1" tabindex="-1"></a>preciosMV_ts<span class="ot">=</span><span class="fu">ts</span>(precios_ts,<span class="at">start =</span> <span class="dv">2010</span>, <span class="at">frequency =</span> <span class="dv">12</span>)</span>
-<span id="cb48-2"><a href="unidad-4-1.html#cb48-2" tabindex="-1"></a>preciosMV_ts</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="unidad-4.html#cb48-1" tabindex="-1"></a>preciosMV_ts<span class="ot">=</span><span class="fu">ts</span>(precios_ts,<span class="at">start =</span> <span class="dv">2010</span>, <span class="at">frequency =</span> <span class="dv">12</span>)</span>
+<span id="cb48-2"><a href="unidad-4.html#cb48-2" tabindex="-1"></a>preciosMV_ts</span></code></pre></div>
 <pre><code>##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug
 ## 2010 2.828185 2.834620 3.854530 2.916667 4.409457 4.636978 3.571429 4.855076
 ## 2011 5.179527 4.704291 3.571429 4.974490 3.899573 5.014854 5.325329 4.851072
@@ -338,7 +341,7 @@ La secuencia de promedio movil se convierte en serie de tiempo usando la instruc
 ## 2014 4.140230 7.006366 3.953889 3.976744
 ## 2015 3.419432 3.419467 3.506439 3.558834
 ## 2016</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="unidad-4-1.html#cb50-1" tabindex="-1"></a><span class="co">#plot(preciosMV_ts)</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="unidad-4.html#cb50-1" tabindex="-1"></a><span class="co">#plot(preciosMV_ts)</span></span></code></pre></div>
 <h3>
 Descomposiòn
 </h3>
@@ -354,8 +357,8 @@ Estacionalidad
 Residuo
 </li>
 </ul>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="unidad-4-1.html#cb51-1" tabindex="-1"></a>fit <span class="ot">&lt;-</span><span class="fu">decompose</span>(preciosMV_ts,<span class="at">type =</span> <span class="st">&quot;additive&quot;</span>)</span>
-<span id="cb51-2"><a href="unidad-4-1.html#cb51-2" tabindex="-1"></a><span class="fu">library</span>(ggfortify)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="unidad-4.html#cb51-1" tabindex="-1"></a>fit <span class="ot">&lt;-</span><span class="fu">decompose</span>(preciosMV_ts,<span class="at">type =</span> <span class="st">&quot;additive&quot;</span>)</span>
+<span id="cb51-2"><a href="unidad-4.html#cb51-2" tabindex="-1"></a><span class="fu">library</span>(ggfortify)</span></code></pre></div>
 <pre><code>## Warning: package &#39;ggfortify&#39; was built under R version 4.2.3</code></pre>
 <pre><code>## Registered S3 methods overwritten by &#39;ggfortify&#39;:
 ##   method                 from    
@@ -372,37 +375,37 @@ Residuo
 ##   fortify.ts             forecast
 ##   residuals.ar           forecast</code></pre>
 <p>Graficamos la tendencia</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="unidad-4-1.html#cb54-1" tabindex="-1"></a><span class="co">#datos_ts</span></span>
-<span id="cb54-2"><a href="unidad-4-1.html#cb54-2" tabindex="-1"></a></span>
-<span id="cb54-3"><a href="unidad-4-1.html#cb54-3" tabindex="-1"></a><span class="fu">str</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="unidad-4.html#cb54-1" tabindex="-1"></a><span class="co">#datos_ts</span></span>
+<span id="cb54-2"><a href="unidad-4.html#cb54-2" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="unidad-4.html#cb54-3" tabindex="-1"></a><span class="fu">str</span>(precios_ts)</span></code></pre></div>
 <pre><code>##  Time-Series [1:73] from 2010 to 2016: 2.83 2.83 3.85 2.92 4.41 ...</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="unidad-4-1.html#cb56-1" tabindex="-1"></a><span class="fu">View</span>(precios_ts)</span>
-<span id="cb56-2"><a href="unidad-4-1.html#cb56-2" tabindex="-1"></a><span class="fu">plot</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="unidad-4.html#cb56-1" tabindex="-1"></a><span class="fu">View</span>(precios_ts)</span>
+<span id="cb56-2"><a href="unidad-4.html#cb56-2" tabindex="-1"></a><span class="fu">plot</span>(precios_ts)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="unidad-4-1.html#cb57-1" tabindex="-1"></a><span class="fu">summary</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="unidad-4.html#cb57-1" tabindex="-1"></a><span class="fu">summary</span>(precios_ts)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   2.828   3.977   4.554   4.484   4.922   7.006</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="unidad-4-1.html#cb59-1" tabindex="-1"></a><span class="fu">class</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="unidad-4.html#cb59-1" tabindex="-1"></a><span class="fu">class</span>(precios_ts)</span></code></pre></div>
 <pre><code>## [1] &quot;ts&quot;</code></pre>
 <p>Observamos características</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="unidad-4-1.html#cb61-1" tabindex="-1"></a><span class="co">#datos_ts</span></span>
-<span id="cb61-2"><a href="unidad-4-1.html#cb61-2" tabindex="-1"></a></span>
-<span id="cb61-3"><a href="unidad-4-1.html#cb61-3" tabindex="-1"></a><span class="fu">class</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="unidad-4.html#cb61-1" tabindex="-1"></a><span class="co">#datos_ts</span></span>
+<span id="cb61-2"><a href="unidad-4.html#cb61-2" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="unidad-4.html#cb61-3" tabindex="-1"></a><span class="fu">class</span>(precios_ts)</span></code></pre></div>
 <pre><code>## [1] &quot;ts&quot;</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="unidad-4-1.html#cb63-1" tabindex="-1"></a><span class="fu">start</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="unidad-4.html#cb63-1" tabindex="-1"></a><span class="fu">start</span>(precios_ts)</span></code></pre></div>
 <pre><code>## [1] 2010    1</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="unidad-4-1.html#cb65-1" tabindex="-1"></a><span class="fu">end</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="unidad-4.html#cb65-1" tabindex="-1"></a><span class="fu">end</span>(precios_ts)</span></code></pre></div>
 <pre><code>## [1] 2016    1</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="unidad-4-1.html#cb67-1" tabindex="-1"></a><span class="fu">frequency</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="unidad-4.html#cb67-1" tabindex="-1"></a><span class="fu">frequency</span>(precios_ts)</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="unidad-4-1.html#cb69-1" tabindex="-1"></a><span class="fu">summary</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="unidad-4.html#cb69-1" tabindex="-1"></a><span class="fu">summary</span>(precios_ts)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   2.828   3.977   4.554   4.484   4.922   7.006</code></pre>
 <p>Observar tendencia y ciclos</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="unidad-4-1.html#cb71-1" tabindex="-1"></a><span class="fu">plot</span>(precios_ts)</span>
-<span id="cb71-2"><a href="unidad-4-1.html#cb71-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">reg=</span><span class="fu">lm</span>(precios_ts<span class="sc">~</span><span class="fu">time</span>(precios_ts)))</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="unidad-4.html#cb71-1" tabindex="-1"></a><span class="fu">plot</span>(precios_ts)</span>
+<span id="cb71-2"><a href="unidad-4.html#cb71-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">reg=</span><span class="fu">lm</span>(precios_ts<span class="sc">~</span><span class="fu">time</span>(precios_ts)))</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="unidad-4-1.html#cb72-1" tabindex="-1"></a><span class="fu">cycle</span>(precios_ts)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="unidad-4.html#cb72-1" tabindex="-1"></a><span class="fu">cycle</span>(precios_ts)</span></code></pre></div>
 <pre><code>##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
 ## 2010   1   2   3   4   5   6   7   8   9  10  11  12
 ## 2011   1   2   3   4   5   6   7   8   9  10  11  12
@@ -412,21 +415,44 @@ Residuo
 ## 2015   1   2   3   4   5   6   7   8   9  10  11  12
 ## 2016   1</code></pre>
 <p>Observamos información de los meses en los datos</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="unidad-4-1.html#cb74-1" tabindex="-1"></a><span class="fu">boxplot</span>(precios_ts<span class="sc">~</span><span class="fu">cycle</span>(precios_ts))</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="unidad-4.html#cb74-1" tabindex="-1"></a><span class="fu">boxplot</span>(precios_ts<span class="sc">~</span><span class="fu">cycle</span>(precios_ts))</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Se observan valores de media similares en los meses, generando unas pequeñas diferencias entre los meses de marzo, abril y mayo en donde la variación es más alta y datos muy similares desde el mes de agosto hasta diciembre</p>
 <p>Se agrega información logarítmica para observar mejor los datos</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="unidad-4-1.html#cb75-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(precios_ts), <span class="at">ylab=</span><span class="st">&quot;log(precios_ts)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Año&quot;</span>, <span class="at">main=</span><span class="st">&quot;Logaritmo de precios&quot;</span>)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="unidad-4.html#cb75-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(precios_ts), <span class="at">ylab=</span><span class="st">&quot;log(precios_ts)&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Año&quot;</span>, <span class="at">main=</span><span class="st">&quot;Logaritmo de precios&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+## Aplicamos el modelo Holt-Winters</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="unidad-4.html#cb76-1" tabindex="-1"></a>modelo_HW<span class="ot">=</span><span class="fu">HoltWinters</span>(<span class="fu">log</span>(preciosMV_ts), <span class="at">seasonal =</span> <span class="st">&quot;additive&quot;</span>)</span>
+<span id="cb76-2"><a href="unidad-4.html#cb76-2" tabindex="-1"></a><span class="fu">plot</span>(modelo_HW, <span class="at">main=</span><span class="st">&quot;Ajuste con Holt-Winter&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;año&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Logaritmo de precios&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+Se observa una aproximación a los datos originales pero no es tan cercana</p>
+<div id="descomponer-de-acuerdo-a-características" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Descomponer de acuerdo a características<a href="unidad-4.html#descomponer-de-acuerdo-a-características" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="unidad-4.html#cb77-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">fitted</span>(modelo_HW), <span class="at">main =</span> <span class="st">&quot;Descomposición con HW&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Año&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Logaritmo de precios&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+Realizamos corroboración del modelo partiendo de los datos que nos genere el modelo</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="unidad-4.html#cb78-1" tabindex="-1"></a>pred <span class="ot">=</span> <span class="fu">predict</span>(modelo_HW, <span class="dv">6</span>, <span class="at">prediction.interval =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb78-2"><a href="unidad-4.html#cb78-2" tabindex="-1"></a>pred</span></code></pre></div>
+<pre><code>##               fit      upr       lwr
+## Feb 2016 1.228587 1.520211 0.9369625
+## Mar 2016 1.094081 1.388756 0.7994060
+## Apr 2016 1.209761 1.508194 0.9113286
+## May 2016 1.134123 1.437074 0.8311725
+## Jun 2016 1.156195 1.464470 0.8479204
+## Jul 2016 1.107625 1.422065 0.7931845</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="unidad-4.html#cb80-1" tabindex="-1"></a><span class="fu">plot</span>(modelo_HW, pred)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+La linea roja representa los valores generados por el modelo. Al momento de predecir, teniendo en cuenta los parámetros usados podemos pensar que aunque si genera un valor de predicción, no podemos comprara si el valor es ajustado a la realidad por la falta de datos y adicional, se vincula mucho con el dato anterior y al estar cercano a los valores reales en el 2012 pero tan alejados en el 2015 no se podría concluir realmente con esta información.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="unidad-4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="unidad-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -457,7 +483,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-Unidad5.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-Unidad4.Rmd",
 "text": "Edit"
 },
 "history": {
