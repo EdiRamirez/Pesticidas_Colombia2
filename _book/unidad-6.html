@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="unidad-5.html"/>
-
+<link rel="next" href="unidad-7.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -160,6 +160,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="unidad-5.html"><a href="unidad-5.html#transformar-a-estacionaria"><i class="fa fa-check"></i><b>4.1</b> Transformar a estacionaria</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="unidad-6.html"><a href="unidad-6.html"><i class="fa fa-check"></i><b>5</b> Unidad 6</a></li>
+<li class="chapter" data-level="6" data-path="unidad-7.html"><a href="unidad-7.html"><i class="fa fa-check"></i><b>6</b> Unidad 7</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="unidad-7.html"><a href="unidad-7.html#redes-neuronales-elman"><i class="fa fa-check"></i><b>6.1</b> Redes Neuronales ELMAN</a></li>
+<li class="chapter" data-level="6.2" data-path="unidad-7.html"><a href="unidad-7.html#redes-neuronales-jordan"><i class="fa fa-check"></i><b>6.2</b> Redes Neuronales JORDAN</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -362,12 +367,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb46-2"><a href="unidad-6.html#cb46-2" tabindex="-1"></a>Pronostico <span class="ot">&lt;-</span> <span class="fu">predict</span>(Model1, Future)</span>
 <span id="cb46-3"><a href="unidad-6.html#cb46-3" tabindex="-1"></a><span class="fu">tail</span>(Pronostico[<span class="fu">c</span>(<span class="st">&quot;ds&quot;</span>, <span class="st">&quot;yhat&quot;</span>, <span class="st">&quot;yhat_lower&quot;</span>, <span class="st">&quot;yhat_upper&quot;</span>)])</span></code></pre></div>
 <pre><code>##             ds     yhat yhat_lower yhat_upper
-## 433 2017-01-26 7.271938   6.568502   7.989090
-## 434 2017-01-27 6.690441   5.953806   7.351424
-## 435 2017-01-28 6.057413   5.375829   6.786565
-## 436 2017-01-29 5.383918   4.782479   6.110365
-## 437 2017-01-30 4.682163   3.959579   5.371958
-## 438 2017-01-31 3.965203   3.275990   4.686904</code></pre>
+## 433 2017-01-26 7.271938   6.622963   7.946460
+## 434 2017-01-27 6.690441   5.998059   7.396614
+## 435 2017-01-28 6.057413   5.325337   6.717902
+## 436 2017-01-29 5.383918   4.678494   6.070407
+## 437 2017-01-30 4.682163   3.932207   5.391551
+## 438 2017-01-31 3.965203   3.213185   4.698999</code></pre>
 <p>A continuación, se crea una trama. Podemos ver que los datos de entrenamiento están representados como puntos negros y el pronóstico es una línea azul con límites superior e inferior en un área sombreada en azul.</p>
 <p>Podemos ver que los años previstos coinciden bien con las observaciones reales, especialmente si se tienen en cuenta los límites.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="unidad-6.html#cb48-1" tabindex="-1"></a><span class="fu">plot</span>(Model1, Pronostico)</span></code></pre></div>
@@ -383,8 +388,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="unidad-5.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="unidad-5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="unidad-7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -13,3 +13,6 @@ unidad-5
 transformar-a-estacionaria
 unidad-6
 unidad-3
+unidad-7
+redes-neuronales-elman
+redes-neuronales-jordan

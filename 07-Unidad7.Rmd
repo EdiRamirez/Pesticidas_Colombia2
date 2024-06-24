@@ -1,0 +1,234 @@
+---
+title: "07-Unidad7"
+author: "David L López G"
+date: "2024-06-16"
+output: html_document
+---
+
+# Unidad 7
+
+Actividad 7
+
+Cargar los datos
+
+```{r}
+# Cargar el paquete si aún no lo tienes cargado
+library(openxlsx)
+
+# Leer el archivo Excel que ya tienes cargado
+datos <- read.xlsx("importacionestriadadef.xlsx")
+summary(datos)
+
+```
+
+
+
+```{r pressure, echo=FALSE}
+
+# Cargar el paquete
+library(dplyr)
+library(zoo)
+
+datos_ts <- datos[, c("FECHA_PRESENTACION", "VALOR_FOB_USD")]
+datos_ts$FECHA_PRESENTACION <- as.Date(datos_ts$FECHA_PRESENTACION, origin = "1899-12-30")
+#datos_ts
+
+datos_ts <- arrange(datos_ts,(FECHA_PRESENTACION))
+serie=ts(data=datos_ts, start = 2010,frequency =12 )
+precios_ts=ts(serie[,2],start = 2010,frequency = 12)
+precios_ts
+
+```
+```{r}
+
+# Normalización Min-Max
+valores_normalizados <- (precios_ts - min(precios_ts)) / (max(precios_ts) - min(precios_ts))
+
+# Mostrar los valores normalizados
+print(valores_normalizados)
+
+```
+
+
+
+
+Redes Neuronales Recurrentes.
+
+## Redes Neuronales ELMAN
+
+```{r}
+require(RSNNS)
+require(quantmod)
+```
+
+La red neuronal de Elman (ENN) es una de las redes neuronales recurrentes (RNN) . En comparación con las redes neuronales tradicionales, ENN tiene entradas adicionales de la capa oculta, que forma una nueva capa: la capa de contexto. Por lo tanto, el algoritmo de retropropagación (BP) estándar utilizado en ENN se llama algoritmo de retropropagación de Elman (EBP)
+
+Se tienen 73 datos de los cuales se seleccionan los 58 primeros datos para entrenar la  red y el restante para hacer el test.
+
+```{r}
+train<-1:51
+test<-52:73
+
+
+```
+
+Se renombran las variables siendo x la variable tiempo, y la variable del costo del pesticidad. Posteriormente la serie se normaliza. (0-1).
+
+```{r}
+colnames(datos_ts)[1] <-"x"
+colnames(datos_ts)[2] <-"y"
+```
+
+
+```{r}
+
+valores_normalizados
+```
+Se elabora la grafica de los datos normalizados.
+
+```{r}
+plot(valores_normalizados)
+```
+También, definimos como variables de entrenamiento en serie, los n
+ valores anteriores de la misma. Si tenemos valores mensuales de una variable, 12
+ podría ser un mejor valor para n. Lo que haremos será crear un marco de datos con n
+ columnas, cada una de las cuales se construye avanzando un valor de la serie en el futuro, a través de una variable de tipo zoo:
+
+
+```{r}
+y<-as.zoo(valores_normalizados)
+x1<-Lag(y,k=1)
+x2<-Lag(y,k=2)
+x3<-Lag(y,k=3)
+x4<-Lag(y,k=4)
+x5<-Lag(y,k=5)
+x6<-Lag(y,k=6)
+x7<-Lag(y,k=7)
+x8<-Lag(y,k=8)
+x9<-Lag(y,k=9)
+x10<-Lag(y,k=10)
+x11<-Lag(y,k=11)
+x12<-Lag(y,k=12)
+datos_ts<-cbind(y,x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12)
+```
+
+Eliminar NA que se produce al desplazar la serie
+```{r}
+datos_ts<-datos_ts[-(1:12),]
+```
+
+Se define los valores de entrada y salida de la red neuronal
+
+```{r}
+inputs<-datos_ts[,2:13]
+outputs<-datos_ts[,1]
+```
+
+Crear red Elman y entrenarla
+
+```{r}
+fit<-elman(inputs[train],
+ outputs[train],
+ size=c(4,2),
+ #size=6,
+ learnFuncParams=c(0.1),
+ maxit=5000)
+plotIterativeError(fit)
+```
+
+
+```{r}
+y<- as.vector(outputs[-train])
+plot(y,type="l")
+pred<-predict(fit,inputs[-train])
+lines(pred,col="red")
+```
+```{r}
+predictions <-predict(fit,inputs[-train])
+predictions
+```
+Desnormalizar los datos
+
+```{r}
+mod1<-predictions*(max(precios_ts) - min(precios_ts))+min(precios_ts)
+mod1
+```
+
+Aquí vemos la gráfica con los valores pronosticados con la linea roja. -Los valores que adelantamos en el tiempo corresponden a mod1, de los cuales adelantaremos 10 meses a futuro para nuestro estudio.
+
+```{r}
+tamano_total<-length(precios_ts)
+
+x <- 1:(tamano_total+length(mod1))
+y <- c(as.vector(precios_ts),mod1)
+plot(x[1:tamano_total], y[1:tamano_total],col = "blue", type="l")
+lines( x[(tamano_total):length(x)], y[(tamano_total):length(x)], col="red")
+```
+
+
+## Redes Neuronales JORDAN
+
+
+En las redes Jordan, la diferencia esta en que la entrada de las neuronas de la capa de contexto se toma desde la salida de la red.
+
+Realizamos las mismas operaciones que con la red Elman, sustituyendo el modelo, obtenemos el resultado para la red Jordan.
+
+```{r}
+library(RSNNS)
+set.seed(42)
+fit<-jordan(inputs[train],
+outputs[train],
+size=5,
+learnFuncParams=c(0.01),
+maxit=5000)
+
+plotIterativeError(fit,main="Iteraciones error 5 neuronas")
+```
+
+
+```{r}
+y<- as.vector(outputs[-test])
+plot(y,type = "l")
+
+pred<-predict(fit,inputs[-test])
+lines(pred,col="red")
+```
+```{r}
+pred<-predict(fit,inputs[-train])
+plot(y,type="l")
+lines(pred,col="red")
+
+
+```
+
+
+```{r}
+mod2<-pred*(max(precios_ts) - min(precios_ts))+min(precios_ts)
+mod2
+```
+```{r}
+x <- 1:(tamano_total+length(mod2))
+y <- c(as.vector(precios_ts),mod2)
+plot(x[1:tamano_total], y[1:tamano_total],col = "blue", type="l")
+lines( x[(tamano_total):length(x)], y[(tamano_total):length(x)], col="red")
+```
+Estimación del error comparativo
+
+```{r}
+mod1[1:10]
+```
+```{r}
+m1 <- mod1[1:12]
+mod1c <- ts(m1, frequency=12,start=c(2016,1))
+mod1c
+```
+```{r}
+m2 <- mod2[1:10]
+mod2c <- ts(m2, frequency=12,start=c(2016,1))
+mod2c
+```
+
+
+Conclusion: La dos metodologias nos presentan un pronostico, enla grafica de error se evidencian graficos similares y con un error minimo al momento de hacer las iteraciones. Sin embargo, en la proyección se observa una curva más conservadora en cuanto a tendecia, por lo tanto, escogeriamos el metodo Jordan para este ejercicio.
+
+
